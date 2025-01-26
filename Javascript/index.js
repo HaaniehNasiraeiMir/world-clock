@@ -16,6 +16,16 @@ setInterval(function () {
     "h[:]mm[:]ss"
   )} <small>${parTime.format("A")}</small>`;
 }, 1000);
+setInterval(function () {
+  let tokElement = document.querySelector("#tok");
+  let tokDateElement = tokElement.querySelector(".date");
+  let tokTimeElement = tokElement.querySelector(".time");
+  let tokTime = moment().tz("Asia/Tokyo");
+  tokDateElement.innerHTML = tokTime.format("MMMM Do YYYY");
+  tokTimeElement.innerHTML = `${tokTime.format(
+    "h[:]mm[:]ss"
+  )} <small>${tokTime.format("A")}</small>`;
+}, 1000);
 function cityChange(event) {
     let cityTz = event.target.value;
     if (cityTz === "current") {
